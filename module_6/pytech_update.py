@@ -17,6 +17,5 @@ db = client.pytech
 collection = db["students"]
 
 # Find all of the document contents
-module6_2 = collection.find()
-
-print(module6_2)
+for module6_2 in collection.find({},{'_id':0}):
+    print(module6_2)
