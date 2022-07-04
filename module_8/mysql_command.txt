@@ -1,0 +1,441 @@
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pysports           |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use pysports;
+Database changed
+mysql> C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql' at line 1
+mysql> C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql' at line 1
+mysql> C:\Users\jpbef\OneDrive\Documents\Bellevue\CSD310
+ERROR:
+Unknown command '\U'.
+ERROR:
+Unknown command '\j'.
+ERROR:
+Unknown command '\O'.
+ERROR:
+Unknown command '\D'.
+ERROR:
+Unknown command '\B'.
+mysql: Character set 'SD310' is not a compiled character set and is not specified in the 'C:\Program Files\MySQL\MySQL Server 8.0\share\charsets\Index.xml' file
+Charset is not found
+    -> /;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:\Users\jpbef\OneDrive\Documents\Bellevue
+/' at line 1
+mysql> /home/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql
+    -> db_init.sql;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/home/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql
+db_init.sql' at line 1
+mysql> USE pysports;
+Database changed
+mysql> C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql
+    -> -r
+    -> -r;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/db_init.sql
+-r
+-r' at line 1
+mysql> help
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+system    (\!) Execute a system shell command.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.
+ssl_session_data_print Serializes the current SSL session data to stdout or file
+
+For server side help, type 'help contents'
+
+mysql> \.
+ERROR:
+Usage: \. <filename> | source <filename>
+mysql> \. db_init.sql
+ERROR:
+Failed to open file 'db_init.sql', error: 2
+mysql> C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/.db_init.sql
+    -> /. db_init.sql
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/.db_init.sql
+/. db_ini' at line 1
+mysql> source
+ERROR:
+Usage: \. <filename> | source <filename>
+mysql> C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/source db_init.sql
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/source db_init.sql' at line 1
+mysql> C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/source db_init.sql;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'C:/Users/jpbef/OneDrive/Documents/Bellevue/CSD310/Module8/source db_init.sql' at line 1
+mysql> Python Driver (pip)
+    -> pip
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Python Driver (pip)
+pip' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pysports           |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> USE pysports;
+Database changed
+mysql> db_init.sql
+    -> source db_init.sql
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'db_init.sql
+source db_init.sql' at line 1
+mysql> source c:\Users\jpbef\OneDrive\Documents\Bellevue\CSD310\Module8/db_init.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *
+    -> from pysports
+    -> from pysports;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from pysports' at line 3
+mysql> select *
+    -> from pysports;
+ERROR 1146 (42S02): Table 'pysports.pysports' doesn't exist
+mysql> select *
+    -> from pysports_user
+    -> ;
+ERROR 1146 (42S02): Table 'pysports.pysports_user' doesn't exist
+mysql> use pysports_user
+ERROR 1049 (42000): Unknown database 'pysports_user'
+mysql> select pysports_user
+    -> ;
+ERROR 1054 (42S22): Unknown column 'pysports_user' in 'field list'
+mysql> select pysports_user;
+ERROR 1054 (42S22): Unknown column 'pysports_user' in 'field list'
+mysql> select *
+    -> pysports_user
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pysports_user' at line 2
+mysql> select *
+    -> pysports_user;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pysports_user' at line 2
+mysql> select *
+    -> from pysports_user;
+ERROR 1146 (42S02): Table 'pysports.pysports_user' doesn't exist
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pysports           |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use pysports
+Database changed
+mysql> select
+    -> from pysports_user;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from pysports_user' at line 2
+mysql> ?
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+system    (\!) Execute a system shell command.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.
+ssl_session_data_print Serializes the current SSL session data to stdout or file
+
+For server side help, type 'help contents'
+
+mysql> select
+    -> ?
+    -> ?;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?
+?' at line 2
+mysql> help contents
+You asked for help about help category: "Contents"
+For more information, type 'help <item>', where <item> is one of the following
+categories:
+   Account Management
+   Administration
+   Components
+   Compound Statements
+   Contents
+   Data Definition
+   Data Manipulation
+   Data Types
+   Functions
+   Geographic Features
+   Help Metadata
+   Language Structure
+   Loadable Functions
+   Plugins
+   Prepared Statements
+   Replication Statements
+   Storage Engines
+   Table Maintenance
+   Transactions
+   Utility
+
+mysql> help Table Maintenance
+You asked for help about help category: "Table Maintenance"
+For more information, type 'help <item>', where <item> is one of the following
+topics:
+   ANALYZE TABLE
+   CHECK TABLE
+   CHECKSUM TABLE
+   OPTIMIZE TABLE
+   REPAIR TABLE
+
+mysql> help CHECK TABLE
+Name: 'CHECK TABLE'
+Description:
+Syntax:
+CHECK TABLE tbl_name [, tbl_name] ... [option] ...
+
+option: {
+    FOR UPGRADE
+  | QUICK
+  | FAST
+  | MEDIUM
+  | EXTENDED
+  | CHANGED
+}
+
+CHECK TABLE checks a table or tables for errors. CHECK TABLE can also
+check views for problems, such as tables that are referenced in the
+view definition that no longer exist.
+
+To check a table, you must have some privilege for it.
+
+CHECK TABLE works for InnoDB, MyISAM, ARCHIVE, and CSV tables.
+
+Before running CHECK TABLE on InnoDB tables, see
+https://dev.mysql.com/doc/refman/8.0/en/check-table.html#check-table-in
+nodb.
+
+CHECK TABLE is supported for partitioned tables, and you can use ALTER
+TABLE ... CHECK PARTITION to check one or more partitions; for more
+information, see [HELP ALTER TABLE], and
+https://dev.mysql.com/doc/refman/8.0/en/partitioning-maintenance.html.
+
+CHECK TABLE ignores virtual generated columns that are not indexed.
+
+URL: https://dev.mysql.com/doc/refman/8.0/en/check-table.html
+
+
+mysql> help select
+Name: 'SELECT'
+Description:
+Syntax:
+SELECT
+    [ALL | DISTINCT | DISTINCTROW ]
+    [HIGH_PRIORITY]
+    [STRAIGHT_JOIN]
+    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+    [SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    select_expr [, select_expr] ...
+    [into_option]
+    [FROM table_references
+      [PARTITION partition_list]]
+    [WHERE where_condition]
+    [GROUP BY {col_name | expr | position}, ... [WITH ROLLUP]]
+    [HAVING where_condition]
+    [WINDOW window_name AS (window_spec)
+        [, window_name AS (window_spec)] ...]
+    [ORDER BY {col_name | expr | position}
+      [ASC | DESC], ... [WITH ROLLUP]]
+    [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+    [into_option]
+    [FOR {UPDATE | SHARE}
+        [OF tbl_name [, tbl_name] ...]
+        [NOWAIT | SKIP LOCKED]
+      | LOCK IN SHARE MODE]
+    [into_option]
+
+into_option: {
+    INTO OUTFILE 'file_name'
+        [CHARACTER SET charset_name]
+        export_options
+  | INTO DUMPFILE 'file_name'
+  | INTO var_name [, var_name] ...
+}
+
+SELECT is used to retrieve rows selected from one or more tables, and
+can include UNION statements and subqueries. See [HELP UNION], and
+https://dev.mysql.com/doc/refman/8.0/en/subqueries.html. A SELECT
+statement can start with a WITH clause to define common table
+expressions accessible within the SELECT. See
+https://dev.mysql.com/doc/refman/8.0/en/with.html.
+
+The most commonly used clauses of SELECT statements are these:
+
+o Each select_expr indicates a column that you want to retrieve. There
+  must be at least one select_expr.
+
+o table_references indicates the table or tables from which to retrieve
+  rows. Its syntax is described in [HELP JOIN].
+
+o SELECT supports explicit partition selection using the PARTITION
+  clause with a list of partitions or subpartitions (or both) following
+  the name of the table in a table_reference (see [HELP JOIN]). In this
+  case, rows are selected only from the partitions listed, and any
+  other partitions of the table are ignored. For more information and
+  examples, see
+  https://dev.mysql.com/doc/refman/8.0/en/partitioning-selection.html.
+
+o The WHERE clause, if given, indicates the condition or conditions
+  that rows must satisfy to be selected. where_condition is an
+  expression that evaluates to true for each row to be selected. The
+  statement selects all rows if there is no WHERE clause.
+
+  In the WHERE expression, you can use any of the functions and
+  operators that MySQL supports, except for aggregate (group)
+  functions. See
+  https://dev.mysql.com/doc/refman/8.0/en/expressions.html, and
+  https://dev.mysql.com/doc/refman/8.0/en/functions.html.
+
+SELECT can also be used to retrieve rows computed without reference to
+any table.
+
+URL: https://dev.mysql.com/doc/refman/8.0/en/select.html
+
+
+mysql> select *
+    -> from player
+    -> ;
++-----------+------------+-------------+---------+
+| player_id | first_name | last_name   | team_id |
++-----------+------------+-------------+---------+
+|         1 | Thorin     | Oakenshield |       1 |
+|         2 | Bilbo      | Baggins     |       1 |
+|         3 | Frodo      | Baggins     |       1 |
+|         4 | Saruman    | The White   |       2 |
+|         5 | Angmar     | Witch-king  |       2 |
+|         6 | Azog       | The Defiler |       2 |
++-----------+------------+-------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select *
+    -> from team;
++---------+--------------+---------------+
+| team_id | team_name    | mascot        |
++---------+--------------+---------------+
+|       1 | Team Gandalf | White Wizards |
+|       2 | Team Sauron  | Orcs          |
++---------+--------------+---------------+
+2 rows in set (0.00 sec)
+
+mysql>
