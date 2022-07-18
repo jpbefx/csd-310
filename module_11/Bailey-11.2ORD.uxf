@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>60</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Wine Ordered Average
+--
+Total orders/distributors ordering</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>280</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Total Orders
+--
+All units ordered = 4287</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>240</y>
+      <w>230</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Distributor
+--
+1. Wine-Not?
+2. I Heart Wine
+3. Its Wine O Clock Somwhere
+4. Wine Time
+5. Drunk Inc.
+6. Wine and Dine</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>100</y>
+      <w>210</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=*-1
+m2=1-*
+</panel_attributes>
+    <additional_attributes>10.0;220.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>100</y>
+      <w>220</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=  1-*
+m2=  *-1
+</panel_attributes>
+    <additional_attributes>180.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

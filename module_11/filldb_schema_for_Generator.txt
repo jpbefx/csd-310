@@ -1,0 +1,104 @@
+
+
+
+CREATE TABLE departments (department_id INT NOT NULL AUTO_INCREMENT, department_name VARCHAR(30) NOT NULL,PRIMARY KEY(department_id));
+
+CREATE TABLE employee (personnel_id INT NOT NULL AUTO_INCREMENT,f_name    VARCHAR(20) NOT NULL,l_name   VARCHAR(20) NOT NULL,department_id INT NOT NULL, PRIMARY KEY(personnel_id), CONSTRAINT fk_department FOREIGN KEY(department_id) REFERENCES departments(department_id));
+
+CREATE TABLE suppliers (supplier_id INT NOT NULL AUTO_INCREMENT, supplier_name VARCHAR(40) NOT NULL, supplier_address VARCHAR(60) NOT NULL, supplier_contact VARCHAR(20) NOT NULL, PRIMARY KEY(supplier_id));
+
+CREATE TABLE supplies (item_id INT NOT NULL AUTO_INCREMENT, supply_name VARCHAR(20) NOT NULL, supplier_id INT NOT NULL, PRIMARY KEY(item_id), CONSTRAINT fk_suppliers FOREIGN KEY(supplier_id) REFERENCES suppliers(supplier_id));
+
+CREATE TABLE employee_time (record_id INT NOT NULL AUTO_INCREMENT, personnel_id INT NOT NULL, work_date date, hours INT, PRIMARY KEY(record_id));
+
+CREATE TABLE deliveries_log (shipment_id INT NOT NULL AUTO_INCREMENT, expected_delivery_date date, actual_delivery_date date, supplier_id INT NOT NULL, PRIMARY KEY(shipment_id));
+
+CREATE TABLE wine_distribution (order_id INT NOT NULL AUTO_INCREMENT, order_date date, wine_name VARCHAR(20), order_units INT NOT NULL, distributor_name VARCHAR(100), PRIMARY KEY(order_id));
+
+CREATE TABLE wine_production (batch_id INT NOT NULL AUTO_INCREMENT, wine_name VARCHAR(20), born_date date, units_produced INT, PRIMARY KEY(batch_id));
+
+
+
+INSERT INTO departments(department_name) VALUES('Executives');
+
+INSERT INTO departments(department_name) VALUES('Finance');
+
+INSERT INTO departments(department_name) VALUES('Marketing');
+
+INSERT INTO departments(department_name) VALUES('Production');
+
+INSERT INTO departments(department_name) VALUES('Distribution');
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Stan', 'Bacchus', 1);
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Davis', 'Bacchus', 1);
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Janet', 'Collins', 2);
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Roz', 'Murphy', 3);
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Bob', 'Ulrich', 3);
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Henry', 'Doyle', 4);
+
+INSERT INTO employee(f_name, l_name, department_id) VALUES('Maria', 'Costanza', 5);
+
+INSERT INTO suppliers(supplier_name, supplier_address, supplier_contact) VALUES('XYZ Bottling', '123 Seasame Street', 'Jim Morrison');
+
+INSERT INTO suppliers(supplier_name, supplier_address, supplier_contact) VALUES('East Coast Paper Products', '1601 Pennsylvania Avenue', 'Burt Macklin');
+
+INSERT INTO suppliers(supplier_name, supplier_address, supplier_contact) VALUES('London Flow and Storage Solutions', '221C Baker Street', 'James Potter');
+
+INSERT INTO supplies(supply_name, supplier_id) VALUES('Bottles', 1);
+
+INSERT INTO supplies(supply_name, supplier_id) VALUES('Corks', 1);
+
+INSERT INTO supplies(supply_name, supplier_id) VALUES('Labels', 2);
+
+INSERT INTO supplies(supply_name, supplier_id) VALUES('Boxes', 2);
+
+INSERT INTO supplies(supply_name, supplier_id) VALUES('Vats', 3);
+
+INSERT INTO supplies(supply_name, supplier_id) VALUES('Tubing', 3);
+
+INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('1', '2022-01-08', '8' );
+
+INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('1', '2022-03-09', '8' );
+
+INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('2', '2022-06-08', '8' );
+
+INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('3', '2022-07-07', '16' );
+
+INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('4', '2022-05-08', '4' );
+
+INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('3', '2022-01-08', '8' );
+
+INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-01-15', '2022-01-15', '1' );
+
+INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-02-27', '2022-03-10', '3' );
+
+INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-03-19', '2022-03-16', '2' );
+
+INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-04-22', '2022-04-23', '3' );
+
+INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-05-19', '2022-05-19', '2' );
+
+INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-06-18', '2022-06-18', '1' );
+
+INSERT INTO wine_distribution(order_date, wine_name, order_units, distributor_name) VALUES('2022-04-18', 'Cabernet', '445', 'Wine-Not?' );
+
+INSERT INTO wine_distribution(order_date, wine_name, order_units, distributor_name) VALUES('2022-03-24', 'Merlot', '245', 'I Heart Wine' );
+
+INSERT INTO wine_distribution(order_date, wine_name, order_units, distributor_name) VALUES('2022-02-14', 'Chardonnay', '154', 'Its Wine O Clock Somewhere' );
+
+INSERT INTO wine_distribution(order_date, wine_name, order_units, distributor_name) VALUES('2022-07-06', 'Cabernet', '189', 'Wine Time' );
+
+INSERT INTO wine_distribution(order_date, wine_name, order_units, distributor_name) VALUES('2022-04-03', 'Merlot', '3000', 'Drunk Inc,' );
+
+INSERT INTO wine_distribution(order_date, wine_name, order_units, distributor_name) VALUES('2022-07-28', 'Chardonnay', '254', 'Wine and Dine' );
+
+INSERT INTO wine_production(wine_name, born_date, units_produced) VALUES('Cabernet', '2022-07-10', '664');
+
+INSERT INTO wine_production(wine_name, born_date, units_produced) VALUES('Chardonnay', '2022-07-10','775');
+
+INSERT INTO wine_production(wine_name, born_date, units_produced) VALUES('Merlot', '2022-07-10', '497');
