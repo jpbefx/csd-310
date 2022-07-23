@@ -43,17 +43,21 @@ initCurs.execute("DROP TABLE IF EXISTS deliveries_log;")
 initCurs.execute("DROP TABLE IF EXISTS wine_distribution;")
 # James added this drop
 initCurs.execute("DROP TABLE IF EXISTS wine_production;")
+initCurs.execute("DROP TABLE IF EXISTS employee_clocks;")
+
 initCurs.execute("CREATE TABLE departments (\ndepartment_id INT NOT NULL AUTO_INCREMENT, department_name VARCHAR(30) NOT NULL,\nPRIMARY KEY(department_id)\n);")
-initCurs.execute("CREATE TABLE employee (\npersonnel_id INT NOT NULL AUTO_INCREMENT,\nf_name    VARCHAR(20) NOT NULL,\nl_name   VARCHAR(20) NOT NULL,\ndepartment_id INT NOT NULL,\n PRIMARY KEY(personnel_id), CONSTRAINT fk_department\nFOREIGN KEY(department_id) REFERENCES departments(department_id)\n);")
+initCurs.execute("CREATE TABLE employee (\nemployee_id INT NOT NULL AUTO_INCREMENT,\nf_name    VARCHAR(20) NOT NULL,\nl_name   VARCHAR(20) NOT NULL,\ndepartment_id INT NOT NULL,\n PRIMARY KEY(employee_id), CONSTRAINT fk_department\nFOREIGN KEY(department_id) REFERENCES departments(department_id)\n);")
 initCurs.execute("CREATE TABLE suppliers (\nsupplier_id INT NOT NULL AUTO_INCREMENT,\nsupplier_name VARCHAR(40) NOT NULL,\nsupplier_address VARCHAR(60) NOT NULL,\nsupplier_contact VARCHAR(20) NOT NULL,\nPRIMARY KEY(supplier_id)\n);")
 initCurs.execute("CREATE TABLE supplies (\nitem_id INT NOT NULL AUTO_INCREMENT,\nsupply_name VARCHAR(20) NOT NULL,\nsupplier_id INT NOT NULL,\nPRIMARY KEY(item_id),\nCONSTRAINT fk_suppliers\nFOREIGN KEY(supplier_id)\nREFERENCES suppliers(supplier_id)\n);")
 
 #Added these tables - Joel
-initCurs.execute("CREATE TABLE employee_time (record_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,personnel_id INT NOT NULL,work_date date,hours INT)")
-initCurs.execute("CREATE TABLE deliveries_log (shipment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,expected_delivery_date date,actual_delivery_date date,supplier_id INT NOT NULL)")
-initCurs.execute("CREATE TABLE wine_distribution (order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,order_date date,wine_name VARCHAR(20), order_units INT NOT NULL,distributor_name VARCHAR(100))")
+#initCurs.execute("CREATE TABLE employee_time (record_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,personnel_id INT NOT NULL,work_date date,hours INT)")
+initCurs.execute("CREATE TABLE deliveries_log (shipment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,expected_delivery_date date,actual_delivery_date date,supplier_id INT NOT NULL);")
+initCurs.execute("CREATE TABLE wine_distribution (order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,order_date date,wine_name VARCHAR(20), order_units INT NOT NULL,distributor_name VARCHAR(100));")
 #Added these tables - James
-initCurs.execute("CREATE TABLE wine_production (batch_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,wine_name VARCHAR(20),born_date date,units_produced INT)")
+initCurs.execute("CREATE TABLE wine_production (batch_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,wine_name VARCHAR(20),born_date date,units_produced INT);")
+initCurs.execute("CREATE TABLE employee_clocks (clock_id INT NOT NULL AUTO_INCREMENT,department_id INT,clock_in DATETIME,clock_out DATETIME,PRIMARY KEY(clock_id),CONSTRAINT fk_employee FOREIGN KEY(employee_id) REFERENCES employee(employee_id));")
+#initCurs.execute("CREATE TABLE employee_clocks (clock_id INT NOT NULL AUTO_INCREMENT,department_id INT,clock_in DATETIME,clock_out DATETIME,PRIMARY KEY(clock_id));")
 
 initCurs.close()
 
@@ -101,12 +105,14 @@ cursor.execute("INSERT INTO supplies(supply_name, supplier_id) VALUES('Tubing', 
 
 #Added these inserts - Joel
 #Employee_Time
+'''
 cursor.execute("INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('1', '2022-01-08', '8' );")
 cursor.execute("INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('1', '2022-03-09', '8' );")
 cursor.execute("INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('2', '2022-06-08', '8' );")
 cursor.execute("INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('3', '2022-07-07', '16' );")
 cursor.execute("INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('4', '2022-05-08', '4' );")
 cursor.execute("INSERT INTO employee_time(personnel_id, work_date, hours) VALUES('3', '2022-01-08', '8' );")
+'''
 
 #Deliveries_log
 cursor.execute("INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-01-15', '2022-01-15', '1' );")
@@ -129,6 +135,14 @@ cursor.execute("INSERT INTO wine_production(wine_name, born_date, units_produced
 cursor.execute("INSERT INTO wine_production(wine_name, born_date, units_produced) VALUES('Chardonnay', '2022-07-10','775');")
 cursor.execute("INSERT INTO wine_production(wine_name, born_date, units_produced) VALUES('Merlot', '2022-07-10', '497');")
 
+cursor.execute("INSERT INTO employee_clocks(department_id, clock_in, clock_out,) VALUES('1', '2022-01-15 07:55:57', '2022-01-15 16:12:32');")
+cursor.execute("INSERT INTO employee_clocks(department_id, clock_in, clock_out,) VALUES('1', '2022-01-15 07:40:23', '2022-01-15 16:02:44');") 
+cursor.execute("INSERT INTO employee_clocks(department_id, clock_in, clock_out,) VALUES('2', '2022-01-15 08:42:05', '2022-01-15 17:04:54');") 
+cursor.execute("INSERT INTO employee_clocks(department_id, clock_in, clock_out,) VALUES('3', '2022-01-15 10:25:09', '2022-01-15 15:37:28');") 
+cursor.execute("INSERT INTO employee_clocks(department_id, clock_in, clock_out,) VALUES('4', '2022-01-15 10:22:57', '2022-01-15 15:37:34');") 
+cursor.execute("INSERT INTO employee_clocks(department_id, clock_in, clock_out,) VALUES('3', '2022-01-15 05:57:04', '2022-01-15 15:44:03');") 
+#cursor.execute("INSERT INTO employee_clocks(employee_id, clock_in, clock_out,) VALUES ('2022-01-15' '05:59:47', '2022-01-15' '16:14:35');") 
+initCurs.close()
 db.commit()
-
+print("--  INSERT COMPLETE: NO ERRORS  --")
 cursor.close()
