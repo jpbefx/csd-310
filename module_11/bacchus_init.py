@@ -105,7 +105,8 @@ cursor.execute("INSERT INTO supplies(supply_name, supplier_id) VALUES('Tubing', 
 
 #Added these inserts - Joel
 #Employee_Time
-
+'''
+    >>REPLACED WITH NEW TABLE::employee_clocks<<
 cursor.execute("INSERT INTO employee_time(employee_id, work_date, hours) VALUES('1', '2022-01-08', '8' );")
 cursor.execute("INSERT INTO employee_time(employee_id, work_date, hours) VALUES('1', '2022-03-09', '8' );")
 cursor.execute("INSERT INTO employee_time(employee_id, work_date, hours) VALUES('2', '2022-06-08', '8' );")
@@ -113,6 +114,7 @@ cursor.execute("INSERT INTO employee_time(employee_id, work_date, hours) VALUES(
 cursor.execute("INSERT INTO employee_time(employee_id, work_date, hours) VALUES('4', '2022-05-08', '4' );")
 cursor.execute("INSERT INTO employee_time(employee_id, work_date, hours) VALUES('3', '2022-01-08', '8' );")
 
+'''
 
 #Deliveries_log
 cursor.execute("INSERT INTO deliveries_log(expected_delivery_date, actual_delivery_date, supplier_id) VALUES('2022-01-15', '2022-01-15', '1' );")
